@@ -21,21 +21,7 @@
        auth_kind: "{{ gcp_cred_kind }}"
      register: gce_ip
    
-   - name: create a firewall
-     google.cloud.gcp_compute_firewall:
-      name: firewall
-      allowed:
-       - ip_protocol: tcp
-         ports:
-         - '22'
-      target_tags:
-      - ssh-externo
-      - http-server
-      - https-server
-      project: "{{ gcp_project }}"
-      auth_kind: serviceaccount
-      service_account_file: "{{ gcp_cred_file }}"
-      state: present
+   
 
    - name: Bring up the instance in the zone
      gcp_compute_instance:
@@ -53,15 +39,34 @@
                type: ONE_TO_ONE_NAT
        tags:
          items: 
-           - http-server
-           - https-server
-           - ssh-externo
+           - "http-server"
+           - "https-server"
+           - "ssh-externo"
 
        zone: "{{ zone }}"
        project: "{{ gcp_project }}"
        service_account_file: "{{ gcp_cred_file }}"
        auth_kind: "{{ gcp_cred_kind }}"
-     register: gce 
+     register: gce
+        
+    
+   - name: create a firewall
+     google.cloud.gcp_compute_firewall:
+      name: firewall
+      allowed:
+       - ip_protocol: tcp
+         ports:
+         - '22'
+         - '80'
+         - '8080'
+      target_tags:
+      - ssh-externo
+      - http-server
+      - https-server
+      project: "{{ gcp_project }}"
+      auth_kind: serviceaccount
+      service_account_file: "{{ gcp_cred_file }}"
+      state: present 
 
   post_tasks:
     - name: Save host data
