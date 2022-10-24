@@ -5,4 +5,3 @@ RUN apt-get -y update; \
     apt-get -y install apt-utils \
 RUN apt install apache2-utils
 
-CMD ["bash"]

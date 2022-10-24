@@ -17,4 +17,12 @@ RUN apt-get -y update; \
 RUN apt install apache2-utils
 ```
 
-    - ## Pasos para la construcción del contenedor
+- ## Pasos para la construcción del contenedor
+El contenedor no se va a construir en local, si no que se va a contruir en la nube de google. De esta forma no es necesario subir la imagen a posteri, si no que la imagen ya se encuentra disponible en el repository del proyecto.
+El comando a ejecutar es el siguiente:
+
+![nada](images/contruccion_nube.png)
+    
+El resultado obtenido es el siguente:
+
+![nada](images/contruccion_nube_resultado.png)
