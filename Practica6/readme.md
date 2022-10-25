@@ -28,6 +28,7 @@ El resultado obtenido es el siguente:
 ![nada](images/construccion_nube_resultado.jpg)
 
 Aparece el contenedor creado en la nube de google
+
 ![nada](images/construccion_nube_resultado_gce.png)
 
 - # Cluster master
@@ -101,6 +102,7 @@ Para que tengan alta disponibilidad los pods
 kubectl get deployment
 ```
 Resultado que muestra el número de despliegues que se tienen actualmente. Se puede comprobar que todos los pods se encuentran levantados y disponibles
+
 ![nada](images/get_deployment.png)
 
 ```
