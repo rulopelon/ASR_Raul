@@ -138,8 +138,8 @@ El cambio ha sido efectivo
 Ahora que ya se ha desplegado el cluster que sirve el contenido web, se va a proceder a crear el cluster que realiza la prueba de rendimiento.
 Este cluster despliega 5 pods con el contenedor que se ha creado en el primer apartado.
 El fichero .yaml con la descripción del despliegue es el siguiente:
-    
-    apiVersion: batch/v1beta1
+ ```
+   apiVersion: batch/v1beta1
     kind: CronJob
     metadata:
     name: mycronjob
@@ -153,11 +153,13 @@ El fichero .yaml con la descripción del despliegue es el siguiente:
             containers:
             - name: ab
                 image: gcr.io/kubernetes-366509/locust-tasks:latest
-                command: ["ab","-n","10000","-c","10","http://php-apache34"]
+                command: ["ab","-n","10000","-c","10","http://php-apache/"]
             restartPolicy: Never
         backoffLimit: 2
     
     concurrencyPolicy: Allow 
+
+    ```
 - ## Despliegue pods slave
 Una vez se tiene el contenedor en el registry de GCE y el fichero del despligue correctamente configurado, se puede proceder a realizar el despliegue del job.
 Para ello se ejecuta el siguiente comando
