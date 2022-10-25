@@ -165,3 +165,11 @@ kubectl apply -f job.yaml
 Efectivamente, se ha desplegado el job en el cluster
 
 ![nada](images/despliegue_job_resultado.png)
+
+En la siguiente imagen se puede comprobar como se han levantado los pods, y como efectivamente la prueba ha funcionado correctamente.
+
+![nada](images/pods_job_resultado.png)
+
+En la siguente imagen se puede apreciar como el cluster se ha adaptado a la carga que tenía en el instante de la prueba de carga, ya que el cluster automaticamente ha escalado al número de pods máximo que se le había establecido, es decir 3
+![nada](images/escalado_funcionando.png)
+
