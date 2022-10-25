@@ -138,6 +138,7 @@ El cambio ha sido efectivo
 Ahora que ya se ha desplegado el cluster que sirve el contenido web, se va a proceder a crear el cluster que realiza la prueba de rendimiento.
 Este cluster despliega 5 pods con el contenedor que se ha creado en el primer apartado.
 El fichero .yaml con la descripción del despliegue es el siguiente:
+
  ```
    apiVersion: batch/v1beta1
     kind: CronJob
@@ -159,13 +160,15 @@ El fichero .yaml con la descripción del despliegue es el siguiente:
     
     concurrencyPolicy: Allow 
 
-    ```
+```
 - ## Despliegue pods slave
 Una vez se tiene el contenedor en el registry de GCE y el fichero del despligue correctamente configurado, se puede proceder a realizar el despliegue del job.
 Para ello se ejecuta el siguiente comando
+
 ```
 kubectl apply -f job.yaml
 ```
+
 Efectivamente, se ha desplegado el job en el cluster
 
 ![nada](images/despliegue_job_resultado.png)
@@ -177,3 +180,8 @@ En la siguiente imagen se puede comprobar como se han levantado los pods, y como
 En la siguente imagen se puede apreciar como el cluster se ha adaptado a la carga que tenía en el instante de la prueba de carga, ya que el cluster automaticamente ha escalado al número de pods máximo que se le había establecido, es decir 3
 ![nada](images/escalado_funcionando.png)
 
+- # Destrucción cluster
+Cuando se ha terminado la práctica es necesario destruir el cluster creado, para ello se ejecuta el siguiente comando:
+```
+gcloud container clusters delete cluster-kubernetes --quiet
+```
