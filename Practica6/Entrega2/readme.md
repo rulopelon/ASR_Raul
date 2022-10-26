@@ -95,7 +95,7 @@ Servicios creados:
 ![nada](images/despliegue_master_resultado.png)
 
 - ## Escalado cluster
-Una vez que se ha creado esl cluster es necesario configurarlo para que pueda escañar de forma horizontal y vertical, para ello se van a llevar a cabo los siguentes pasos:
+Una vez que se ha creado el cluster es necesario configurarlo para que pueda escañar de forma horizontal y vertical, para ello se van a llevar a cabo los siguentes pasos:
 - ### Escalado de pods con HPA
 Para que tengan alta disponibilidad los pods
 ```
