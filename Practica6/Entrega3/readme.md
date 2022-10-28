@@ -294,4 +294,9 @@ kubectl get svc locust-master -o yaml | yq '.status.loadBalancer.ingress[0].ip'
 ![nada](images/resultado_final_1.png)
 ![nada](images/resultado_final_2.png)
 
+Se puede apreciar que si se aumentan las consultas por segundo desde locust, los pods de servidor web se saturan y empiezan a aparecer errores y consultas perdidas.
+
+![nada](images/resultado_final_3.png)
+
+![nada](images/resultado_final_4.png)
 
